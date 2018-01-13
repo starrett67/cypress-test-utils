@@ -3,6 +3,7 @@ import { getActivationLink, getPasswordResetLink } from './email'
 
 jest.useFakeTimers()
 jest.mock('axios', () => ({ post: jest.fn() }))
+console.log = () => {}
 // prettier-ignore
 const ACTIVATION_EMAIL = { parts: [ { which: 'TEXT', body: "\r\nYou're receiving this email because you created an account on 3Blades.\r\n\r\nPlease go to the following page to activate account:\r\n\r\nhttp://dev.3blades.ai/auth/activate?uid=YTc3ZjNkOTMtM2QyZi00NmRjLTg0OWYtZmU4NDI0NjM3Yzk1&token=4ss-5cb83717b9b15347234c\r\n\r\n\r\nThanks for using our site!\r\n\r\nThe 3Blades team\r\n\r\n\r\n"}]}
 // prettier-ignore
