@@ -1,5 +1,5 @@
-import axios from 'axios'
-import { login, createUser } from './apiActions'
+const axios = require('axios')
+const { login, createUser } = require('./apiActions')
 
 jest.mock('axios', () => jest.fn())
 

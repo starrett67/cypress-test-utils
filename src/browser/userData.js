@@ -1,4 +1,4 @@
-import uuid from 'uuid'
+const uuid = require('uuid')
 
 const generateUsername = () => {
   const id = uuid().replace(/\-/g, '')
@@ -11,7 +11,7 @@ const generateRandomString = () =>
 const generatePassword = () =>
   `${generateRandomString()}${generateRandomString().toUpperCase()}`
 
-export const generateUserData = () => {
+const generateUserData = () => {
   const username = generateUsername()
   return {
     username,
@@ -19,4 +19,8 @@ export const generateUserData = () => {
     password: generatePassword(),
     newPassword: generatePassword(),
   }
+}
+
+module.exports = {
+  generateUserData,
 }

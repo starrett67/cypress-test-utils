@@ -1,6 +1,6 @@
-import axios from 'axios'
+const axios = require('axios')
 
-export const login = ({ API_URL }) => async ({ username, password } = {}) => {
+const login = ({ API_URL }) => async ({ username, password } = {}) => {
   const response = await axios({
     method: 'POST',
     url: API_URL + '/auth/jwt-token-auth/',
@@ -12,7 +12,7 @@ export const login = ({ API_URL }) => async ({ username, password } = {}) => {
   localStorage.setItem('3blades_token', response.body.token)
 }
 
-export const createUser = ({ API_URL, ADMIN_TOKEN }) => ({
+const createUser = ({ API_URL, ADMIN_TOKEN }) => ({
   username,
   email,
   password,
@@ -29,3 +29,8 @@ export const createUser = ({ API_URL, ADMIN_TOKEN }) => ({
       Authorization: `Bearer ${ADMIN_TOKEN}`,
     },
   })
+
+module.exports = {
+  login,
+  createUser,
+}

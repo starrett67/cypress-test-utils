@@ -1,4 +1,4 @@
-import { generateUserData } from './userData'
+const { generateUserData } = require('./userData')
 
 describe('generateUserDate', () => {
   const userData = generateUserData()

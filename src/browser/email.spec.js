@@ -1,5 +1,5 @@
-import axios from 'axios'
-import { getActivationLink, getPasswordResetLink } from './email'
+const axios = require('axios')
+const { getActivationLink, getPasswordResetLink } = require('./email')
 
 jest.useFakeTimers()
 jest.mock('axios', () => ({ post: jest.fn() }))

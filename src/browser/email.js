@@ -1,7 +1,7 @@
-import axios from 'axios'
-import compose from 'promise-compose'
-import { head } from 'lodash'
-import { get, find, nth } from 'lodash/fp'
+const axios = require('axios')
+const compose = require('promise-compose')
+const { head } = require('lodash')
+const { get, find, nth } = require('lodash/fp')
 
 const URL_REGEX = /(https?:\/\/(?:[\w\-\.]*?)3blades\.ai\S*)/
 const matchUrlRegex = text => text.match(URL_REGEX) || []
@@ -49,8 +49,13 @@ const SUBJECTS = {
   PASSWORD_RESET: 'Password reset on 3Blades',
 }
 
-export const getActivationLink = to =>
+const getActivationLink = to =>
   getUrlFromEmailByQuery({ to, subject: SUBJECTS.ACTIVATION })
 
-export const getPasswordResetLink = to =>
+const getPasswordResetLink = to =>
   getUrlFromEmailByQuery({ to, subject: SUBJECTS.PASSWORD_RESET })
+
+module.exports = {
+  getActivationLink,
+  getPasswordResetLink,
+}
