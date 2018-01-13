@@ -2,7 +2,6 @@
   "name": "@3blades/cypress-test-utils",
   "version": "0.0.0-development",
   "description": "Utilities for testing with Cypress",
-  "main": "index.js",
   "scripts": {
     "test": "jest --watch",
     "test:ci": "jest",
