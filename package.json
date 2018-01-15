@@ -4,7 +4,7 @@
   "description": "Utilities for testing with Cypress",
   "scripts": {
     "test": "jest --watch",
-    "test:ci": "jest",
+    "test:ci": "jest --coverage",
     "cm": "git-cz",
     "semantic-release": "semantic-release"
   },
