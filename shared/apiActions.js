@@ -1,14 +1,17 @@
 const axios = require('axios')
 
-const login = ({ API_URL }) => ({ username, password } = {}) =>
-  axios({
+const login = ({ API_URL }) => async ({ username, password } = {}) => {
+  const response = await axios({
     method: 'POST',
-    url: API_URL + '/auth/jwt-token-auth/',
+    baseURL: API_URL,
+    url: '/auth/jwt-token-auth/',
     data: {
       username,
       password,
     },
   })
+  return response.data.token
+}
 
 const createUser = ({ API_URL, ADMIN_TOKEN }) => ({
   username,

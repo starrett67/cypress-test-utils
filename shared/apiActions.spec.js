@@ -10,13 +10,14 @@ describe('apiActions', () => {
   describe('login', () => {
     it('works', async () => {
       axios.mockReturnValue({ data: { token: 'ASDF' } })
-      await login({ API_URL: 'example.com' })({
+      const token = await login({ API_URL: 'example.com' })({
         username: 'asdf',
         password: 'qwer',
       })
       expect(axios.mock.calls[0][0].url).toContain('example.com')
       expect(axios.mock.calls[0][0].data.username).toEqual('asdf')
       expect(axios.mock.calls[0][0].data.password).toEqual('qwer')
+      expect(token).toEqual('ASDF')
     })
   })
   describe('createUser', () => {
