@@ -31,7 +31,9 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "imap-simple": "^4.0.0",
     "lodash": "^4.17.4",
+    "micro": "^9.1.0",
     "promise-compose": "^1.1.2",
     "uuid": "^3.1.0"
   },
