@@ -9,7 +9,7 @@ describe('apiActions', () => {
   })
   describe('login', () => {
     it('works', async () => {
-      axios.mockReturnValue({ body: { token: 'ASDF' } })
+      axios.mockReturnValue({ data: { token: 'ASDF' } })
       await login({ API_URL: 'example.com' })({
         username: 'asdf',
         password: 'qwer',
@@ -17,7 +17,6 @@ describe('apiActions', () => {
       expect(axios.mock.calls[0][0].url).toContain('example.com')
       expect(axios.mock.calls[0][0].data.username).toEqual('asdf')
       expect(axios.mock.calls[0][0].data.password).toEqual('qwer')
-      expect(localStorage.setItem).toHaveBeenCalledWith('3blades_token', 'ASDF')
     })
   })
   describe('createUser', () => {

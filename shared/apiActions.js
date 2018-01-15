@@ -1,7 +1,7 @@
 const axios = require('axios')
 
-const login = ({ API_URL }) => async ({ username, password } = {}) => {
-  const response = await axios({
+const login = ({ API_URL }) => ({ username, password } = {}) =>
+  axios({
     method: 'POST',
     url: API_URL + '/auth/jwt-token-auth/',
     data: {
@@ -9,8 +9,6 @@ const login = ({ API_URL }) => async ({ username, password } = {}) => {
       password,
     },
   })
-  localStorage.setItem('3blades_token', response.body.token)
-}
 
 const createUser = ({ API_URL, ADMIN_TOKEN }) => ({
   username,
