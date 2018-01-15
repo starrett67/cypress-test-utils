@@ -14,7 +14,7 @@ describe('apiActions', () => {
         username: 'asdf',
         password: 'qwer',
       })
-      expect(axios.mock.calls[0][0].url).toContain('example.com')
+      expect(axios.mock.calls[0][0].baseURL).toContain('example.com')
       expect(axios.mock.calls[0][0].data.username).toEqual('asdf')
       expect(axios.mock.calls[0][0].data.password).toEqual('qwer')
       expect(token).toEqual('ASDF')
