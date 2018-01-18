@@ -15,9 +15,7 @@ const prepareLink = link => {
     }
     return url.toString()
   } catch (ex) {
-    const { URL } = require('url')
-    let url = new URL(link)
-    return url.toString()
+    return link
   }
 }
 
