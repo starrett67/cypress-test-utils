@@ -7,12 +7,16 @@ const URL_REGEX = /(https?:\/\/(?:[\w\-\.]*?)3blades\.ai\S*)/
 const matchUrlRegex = text => text.match(URL_REGEX) || []
 
 const prepareLink = link => {
-  let url = new URL(link)
-  url.protocol = window.location.protocol
-  if (!/3blades\.ai/i.test(window.location.hostname)) {
-    url.host = window.location.host
+  try {
+    let url = new URL(link)
+    url.protocol = window.location.protocol
+    if (!/3blades\.ai/i.test(window.location.hostname)) {
+      url.host = window.location.host
+    }
+    return url.toString()
+  } catch (ex) {
+    return link
   }
-  return url.toString()
 }
 
 const MAX_ITERATIONS = 3

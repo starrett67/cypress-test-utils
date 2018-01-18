@@ -1,5 +1,5 @@
 module.exports = {
-  email: require('./browser/email'),
+  email: require('./shared/email'),
   imap: require('./server/imap'),
   netlify: require('./server/netlify'),
   netlifyAdapters: require('./server/netlifyAdapters'),
