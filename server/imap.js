@@ -37,5 +37,5 @@ module.exports = function createImapServer(userImapConfig) {
     } catch (e) {
       micro.send(res, 500, e)
     }
-  }).listen(9090)
+  }).listen(process.env.IMAP_SERVER_PORT || 9090)
 }
