@@ -24,7 +24,8 @@ const BACKOFF_FACTOR = 10
 const delay = duration => new Promise(resolve => setTimeout(resolve, duration))
 const pollForMessage = async (query, iteration = 1) => {
   console.log(`Iteration #${iteration} for query:`, query)
-  imapServerUrl = 'http://localhost:' + (process.env.IMAP_SERVER_PORT || 9090)
+  const imapServerUrl =
+    'http://localhost:' + (process.env.IMAP_SERVER_PORT || 9090)
   const { data: messages } = await axios.post(imapServerUrl, query)
   if (!messages.length) {
     if (iteration > MAX_ITERATIONS) {
