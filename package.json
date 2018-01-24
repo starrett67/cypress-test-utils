@@ -1,9 +1,9 @@
 {
-  "name": "@3blades/cypress-test-utils",
+  "name": "@illumidesk/cypress-test-utils",
   "version": "0.0.0-development",
   "description": "Utilities for testing with Cypress",
   "main": "index.js",
-  "author": "Ray Gesualdo <rgesualdo@3blades.io> (https://3blades.io)",
+  "author": "Ray Gesualdo <rgesualdo@illumidesk.com> (https://illumidesk.com)",
   "license": "MIT",
   "scripts": {
     "test": "jest --watch",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/3Blades/cypress-test-utils.git"
+    "url": "https://github.com/IllumiDesk/cypress-test-utils.git"
   },
   "bugs": {
-    "url": "https://github.com/3Blades/cypress-test-utils/issues"
+    "url": "https://github.com/IllumiDesk/cypress-test-utils/issues"
   },
-  "homepage": "https://github.com/3Blades/cypress-test-utils#readme",
+  "homepage": "https://github.com/IllumiDesk/cypress-test-utils#readme",
   "dependencies": {
     "axios": "^0.17.1",
     "imap-simple": "^4.0.0",

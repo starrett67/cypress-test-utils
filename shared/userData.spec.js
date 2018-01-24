@@ -3,10 +3,10 @@ const { generateUserData } = require('./userData')
 describe('generateUserDate', () => {
   const userData = generateUserData()
   it('username', () => {
-    expect(userData.username).toMatch(/3bladestestuser[0-9a-f]{32}/)
+    expect(userData.username).toMatch(/illumidesktestuser[0-9a-f]{32}/)
   })
   it('email', () => {
-    expect(userData.email).toEqual(`${userData.username}@testing.3blades.io`)
+    expect(userData.email).toEqual(`${userData.username}@testing.illumidesk.com`)
   })
   it('password', () => {
     expect(userData.password).toMatch(/[a-z0-9]{9}[A-Z0-9]{9}/)

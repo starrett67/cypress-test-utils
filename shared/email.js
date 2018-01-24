@@ -3,14 +3,14 @@ const compose = require('promise-compose')
 const { head } = require('lodash')
 const { get, find, nth } = require('lodash/fp')
 
-const URL_REGEX = /(https?:\/\/(?:[\w\-\.]*?)3blades\.ai\S*)/
+const URL_REGEX = /(https?:\/\/(?:[\w\-\.]*?)illumidesk\.com\S*)/
 const matchUrlRegex = text => text.match(URL_REGEX) || []
 
 const prepareLink = link => {
   try {
     let url = new URL(link)
     url.protocol = window.location.protocol
-    if (!/3blades\.ai/i.test(window.location.hostname)) {
+    if (!/illumidesk\.com/i.test(window.location.hostname)) {
       url.host = window.location.host
     }
     return url.toString()
@@ -50,8 +50,8 @@ const getUrlFromEmailByQuery = compose(
 )
 
 const SUBJECTS = {
-  ACTIVATION: 'Account activation on 3Blades',
-  PASSWORD_RESET: 'Password reset on 3Blades',
+  ACTIVATION: 'Account activation on IllumiDesk',
+  PASSWORD_RESET: 'Password reset on IllumiDesk',
 }
 
 const getActivationLink = to =>
