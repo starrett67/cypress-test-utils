@@ -2,7 +2,7 @@ const uuid = require('uuid')
 
 const generateUsername = () => {
   const id = uuid().replace(/\-/g, '')
-  return `3bladestestuser${id}`
+  return `illumidesktestuser${id}`
 }
 const generateRandomString = () =>
   Math.random()
@@ -15,7 +15,7 @@ const generateUserData = () => {
   const username = generateUsername()
   return {
     username,
-    email: `${username}@testing.3blades.io`,
+    email: `${username}@testing.illumidesk.com`,
     password: generatePassword(),
     newPassword: generatePassword(),
   }
