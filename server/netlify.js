@@ -1,10 +1,12 @@
 const axios = require('axios')
 const compose = require('promise-compose')
 const { get, find, filter, head, reverse, sortBy } = require('lodash/fp')
-const { travisAdapter } = require('./netlifyAdapters')
+const { loadAdapter } = require('./netlifyAdapters')
+const { teamcityAdapter } = require('./netlifyAdapters')
 
 const { NETLIFY_KEY } = process.env
-const { COMMIT, BRANCH, REPO_URL, EVENT_TYPE } = travisAdapter()
+
+const { COMMIT, BRANCH, REPO_URL, EVENT_TYPE } = loadAdapter()
 const delay = duration => new Promise(resolve => setTimeout(resolve, duration))
 const api = axios.create({
   baseURL: 'https://api.netlify.com/api/v1/sites/',

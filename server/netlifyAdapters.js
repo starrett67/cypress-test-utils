@@ -1,4 +1,4 @@
-module.exports.travisAdapter = function() {
+const travisAdapter = function() {
   const {
     TRAVIS_BRANCH,
     TRAVIS_COMMIT,
@@ -15,5 +15,23 @@ module.exports.travisAdapter = function() {
     BRANCH: TRAVIS_BRANCH,
     REPO_URL: `https://github.com/${TRAVIS_REPO_SLUG}`,
     EVENT_TYPE: TRAVIS_EVENT_TYPE,
+  }
+}
+
+const teamcityAdapter = function() {
+  const { VCS_BRANCH, VCS_COMMIT, VCS_URL } = process.env
+  return {
+    COMMIT: VCS_COMMIT,
+    BRANCH: VCS_BRANCH,
+    REPO_URL: VCS_URL,
+    EVENT_TYPE: 'TeamCity',
+  }
+}
+
+module.exports.loadAdapter = function() {
+  if (process.env.TRAVIS_BRANCH) {
+    return travisAdapter()
+  } else {
+    return teamcityAdapter()
   }
 }
