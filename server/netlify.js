@@ -2,7 +2,6 @@ const axios = require('axios')
 const compose = require('promise-compose')
 const { get, find, filter, head, reverse, sortBy } = require('lodash/fp')
 const { loadAdapter } = require('./netlifyAdapters')
-const { teamcityAdapter } = require('./netlifyAdapters')
 
 const { NETLIFY_KEY } = process.env
 
