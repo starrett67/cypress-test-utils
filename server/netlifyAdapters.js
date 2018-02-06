@@ -1,3 +1,5 @@
+const shell = require('shelljs')
+
 const travisAdapter = function() {
   const {
     TRAVIS_BRANCH,
@@ -18,12 +20,23 @@ const travisAdapter = function() {
   }
 }
 
+const getParentCommit = function(commit) {
+  let commits = shell
+    .exec('git log --pretty=%P -n 1 ' + commit)
+    .stdout.replace('\n', '')
+    .split(' ')
+  return commits[commits.length - 1]
+}
+
 const teamcityAdapter = function() {
-  const { VCS_BRANCH, VCS_COMMIT, VCS_URL } = process.env
+  const { VCS_BRANCH, VCS_BRANCH_SPEC, VCS_COMMIT, VCS_URL } = process.env
+
   return {
-    COMMIT: VCS_COMMIT,
-    BRANCH: VCS_BRANCH,
-    REPO_URL: VCS_URL,
+    COMMIT: VCS_BRANCH_SPEC.includes('pull')
+      ? getParentCommit(VCS_COMMIT)
+      : VCS_COMMIT,
+    BRANCH: VCS_BRANCH.replace('refs/heads/', ''),
+    REPO_URL: VCS_URL.replace('.git', ''),
     EVENT_TYPE: 'TeamCity',
   }
 }
